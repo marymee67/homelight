@@ -423,4 +423,92 @@ border-radius: 0 24px 0 24px;
     .nav a {
         font-size: 12px;
     }
+    /* ===== ТОЛЬКО МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+    /* Верхняя строка - иконки в ряд, ссылки под ними */
+    .header-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header-row > a:first-child {
+        order: 1;
+    }
+    
+    .nav {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-wrapper {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Иконки - переносим наверх в строку */
+    .header-row .icon,
+    .header-row a.icon,
+    .header-row a[href*="cart"],
+    .header-row a[href*="favorite"],
+    .header-row a[href*="profile"] {
+        order: 0;
+        display: inline-flex;
+    }
+    
+    /* HOMELIGHT и текст посередине */
+    .hero {
+        padding: 40px 0;
+    }
+    
+    .hero h1 {
+        font-size: 42px;
+    }
+    
+    /* Для вас - посередине между текстом и карточками */
+    .catalog {
+        padding: 20px 0 60px;
+    }
+    
+    .catalog h2 {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    
+    /* Кнопка - черная */
+    .card button,
+    .subscribe-btn {
+        background: #111;
+        color: white;
+    }
+    
+    .card button:hover,
+    .subscribe-btn:hover {
+        background: #333;
+    }
+    
+    /* Серый блок на всю ширину */
+    .subscribe {
+        width: 100%;
+        margin: 0;
+    }
+    
+    .subscribe .container {
+        padding: 0 20px;
+    }
+    
+    /* Подвал - два столбца */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+}
 }

@@ -569,4 +569,39 @@ h1, h2, .logo {
     .logo {
         font-size: 24px;
     }
+    /* ===== ТОЛЬКО МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+    .header-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header-row > a:first-child {
+        order: 1;
+    }
+    
+    .nav {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-wrapper {
+        order: 3;
+        width: 100%;
+    }
+    
+    .header-row .icon,
+    .header-row a.icon {
+        order: 0;
+        display: inline-flex;
+    }
+    
+    .footer-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+}
 }

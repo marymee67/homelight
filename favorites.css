@@ -524,4 +524,48 @@ body {
         width: 14px;
         height: 14px;
     }
+    /* ===== ТОЛЬКО МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+    .header-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header-row > a:first-child {
+        order: 1;
+    }
+    
+    .nav {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-wrapper {
+        order: 3;
+        width: 100%;
+    }
+    
+    .header-row .icon,
+    .header-row a.icon {
+        order: 0;
+        display: inline-flex;
+    }
+    
+    .btn-cart {
+        background: #111;
+        color: white;
+    }
+    
+    .btn-cart:hover {
+        background: #333;
+    }
+    
+    .footer-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+}
 }

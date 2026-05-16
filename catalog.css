@@ -217,22 +217,18 @@ button, input, select, textarea {
 }
 
 .card button {
-    font-family: 'Gothic60', 'Manrope', sans-serif;
-    font-weight: 400;
     background: #a6a86c;
     border: none;
-    padding: 12px 30px;
+    padding: 10px 25px;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: auto;
-    width: fit-content;
     font-size: 14px;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s;
+    font-family: 'Gothic60', sans-serif;
 }
 
 .card button:hover {
     background: #8b8d5a;
-    transform: scale(1.02);
 }
 
 .no-results {
@@ -396,4 +392,50 @@ button, input, select, textarea {
         font-size: 12px;
         margin: 0 3px;
     }
+    /* ===== ТОЛЬКО МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+    .header-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header-row > a:first-child {
+        order: 1;
+    }
+    
+    .nav {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search-wrapper {
+        order: 3;
+        width: 100%;
+    }
+    
+    .header-row .icon,
+    .header-row a.icon {
+        order: 0;
+        display: inline-flex;
+    }
+    
+    /* Кнопка черная */
+    .card button {
+        background: #111;
+        color: white;
+    }
+    
+    .card button:hover {
+        background: #333;
+    }
+    
+    /* Подвал - два столбца */
+    .footer-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+}
 }
