@@ -1,0 +1,436 @@
+/* about.css - стили для страницы "О нас" */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+button, input, select, textarea {
+    font-size: 16px;
+}
+
+/* Заголовки - Widock Trial */
+h1, .logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+/* Навигация и основной текст - Gothic60 */
+.nav a, 
+.about-text-light, 
+.about-text-regular, 
+.about-thanks,
+.search-box input,
+.footer-links a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+/* Иконки */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-profile:hover svg,
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+/* ===== SEARCH ===== */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    gap: 60px;
+}
+
+.about-left {
+    flex: 1;
+}
+
+.about-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-title {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    color: #111;
+}
+
+.about-text-light {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.about-text-regular {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.about-text-regular p {
+    margin-bottom: 15px;
+}
+
+.about-thanks {
+    margin-top: 30px;
+    font-weight: 400;
+    color: #111;
+    font-size: 16px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0 30px;
+    }
+    
+    .about-section {
+        padding: 40px 30px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    
+    .about-left {
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .about-right {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .about-title {
+        font-size: 42px;
+    }
+    
+    .about-text-light br,
+    .about-text-regular br {
+        display: none;
+    }
+    
+    .about-thanks {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .header-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .about-section {
+        flex-direction: column-reverse;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+
+    .about-left {
+        text-align: center;
+        width: 100%;
+    }
+
+    .about-title {
+        font-size: 42px;
+        margin-bottom: 30px;
+    }
+
+    .about-text-light {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .about-text-regular {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .about-text-light br, 
+    .about-text-regular br {
+        display: none;
+    }
+
+    .about-right {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .about-image {
+        max-width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-title {
+        font-size: 32px;
+    }
+
+    .about-text-light {
+        font-size: 14px;
+    }
+
+    .about-text-regular {
+        font-size: 13px;
+    }
+
+    .about-thanks {
+        font-size: 13px;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+
+    .search-box {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+}

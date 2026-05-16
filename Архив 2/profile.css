@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+button, input, select, textarea {
+    font-size: 16px;
+}
+
+h1, .logo, .auth-title, .success-title {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+.nav a, 
+.profile-subtitle,
+.empty-state p,
+.form-group label,
+.form-group input,
+.save-btn,
+.logout-btn,
+.tab-btn,
+.footer-links a,
+.search-box input,
+.auth-note,
+.auth-btn,
+.success-text,
+.success-btn {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-profile:hover svg,
+.active-profile svg {
+    stroke: #a6a86c;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* ===== PROFILE SECTION ===== */
+.profile-section {
+    padding: 40px 0 80px;
+    flex: 1;
+}
+
+.profile-container {
+    text-align: left;
+}
+
+/* Аутентификация */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.auth-box {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 24px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form .form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 14px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.auth-form .form-group input:focus {
+    outline: none;
+    border-color: #a6a86c;
+}
+
+.auth-btn {
+    background: #a6a86c;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.auth-btn:hover {
+    background: #8b8d5a;
+    transform: scale(1.02);
+}
+
+.auth-note {
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Профиль (авторизован) */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 30px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-avatar svg {
+    stroke: #a6a86c;
+}
+
+.profile-title {
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.profile-subtitle {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Вкладки */
+.profile-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 28px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    border-radius: 30px;
+}
+
+.tab-btn:hover {
+    color: #a6a86c;
+}
+
+.tab-btn.active {
+    background: #a6a86c;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.4s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Пустое состояние */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 24px;
+}
+
+.empty-state svg {
+    stroke: #ccc;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.empty-btn, .success-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    background: #a6a86c;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.empty-btn:hover, .success-btn:hover {
+    background: #8b8d5a;
+    transform: scale(1.02);
+}
+
+/* Форма настроек */
+.profile-form {
+    background: white;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #555;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    padding: 14px 18px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 14px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #a6a86c;
+    background: white;
+}
+
+.save-btn {
+    background: #a6a86c;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 200px;
+}
+
+.save-btn:hover {
+    background: #8b8d5a;
+    transform: scale(1.02);
+}
+
+.logout-btn {
+    background: none;
+    border: 1.5px solid #ff6161;
+    color: #ff6161;
+    padding: 12px 40px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.logout-btn:hover {
+    background: #ff6161;
+    color: white;
+}
+
+/* Успешная регистрация */
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 500px;
+    background: white;
+    border-radius: 24px;
+    padding: 60px 40px;
+}
+
+.success-icon {
+    margin-bottom: 30px;
+    animation: scaleIn 0.5s ease;
+}
+
+.success-title {
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: #a6a86c;
+    margin-bottom: 15px;
+}
+
+.success-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
