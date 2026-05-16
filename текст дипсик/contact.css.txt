@@ -1,0 +1,441 @@
+/* contact.css - стили для страницы "Контакты" */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+button, input, select, textarea {
+    font-size: 16px;
+}
+
+/* Заголовки - Widock Trial */
+h1, .logo, .contacts-info h1, .footer-logo, .page-title {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+/* Основной текст - Gothic60 */
+.nav a, 
+.footer-links a,
+.search-box input,
+.contact-label,
+.contact-value,
+.contact-value a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+/* Иконки */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+/* ===== SEARCH ===== */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* ===== КОНТАКТНАЯ СТРАНИЦА ===== */
+.contacts-page {
+    padding: 20px 0 80px;
+    flex: 1;
+}
+
+.contacts-grid {
+    display: flex;
+    gap: 60px;
+    justify-content: space-between;
+    align-items: center;  /* Меняем с flex-start на center - выравнивание по центру по вертикали */
+    text-align: left;
+}
+
+.contacts-info {
+    flex: 1;
+    /* Текст внутри остаётся выровнен по левому краю */
+}
+
+.page-title {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin: 0 0 30px 0;
+    color: #111;
+    text-align: left;  /* Заголовок по левому краю */
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;  /* Текст внутри по левому краю */
+    text-align: left;
+}
+
+.contact-label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #6e6e6e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.contact-label .emoji-label {
+    font-size: 16px;
+}
+
+.contact-value {
+    font-size: 22px;
+    font-weight: 400;
+    color: #111;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contact-value a {
+    text-decoration: none;
+    color: #111;
+    border-bottom: 1px solid #ccc;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-value a:hover {
+    color: #a6a86c;
+    border-color: #a6a86c;
+}
+
+/* Правая колонка - только картинка */
+.contacts-map-card {
+    flex: 0.9;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    border: 1px solid #e8e8e8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contacts-map-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #dadada;
+}
+
+.map-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.contacts-map-card:hover .map-image img {
+    transform: scale(1.02);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #111;
+    display: inline-block;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: #3a3a3a;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contacts-info, .contacts-map-card {
+    animation: fadeInUp 0.6s ease;
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .header-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .contacts-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .page-title {
+        font-size: 42px;
+        text-align: center;
+    }
+
+    .contact-item {
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-value {
+        justify-content: center;
+        font-size: 18px;
+    }
+
+    .contacts-map-card {
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+
+    .contact-value {
+        font-size: 16px;
+    }
+
+    .search-box {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+}

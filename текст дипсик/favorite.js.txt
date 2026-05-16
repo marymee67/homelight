@@ -1,0 +1,69 @@
+// favorites.js - Управление избранными товарами
+
+class Favorites {
+    constructor() {
+        this.items = this.loadFromStorage();
+        this.updateFavoritesIcon();
+    }
+
+    loadFromStorage() {
+        const saved = localStorage.getItem('favorites');
+        return saved ? JSON.parse(saved) : [];
+    }
+
+    saveToStorage() {
+        localStorage.setItem('favorites', JSON.stringify(this.items));
+        this.updateFavoritesIcon();
+    }
+
+    addToFavorites(product) {
+        if (!this.isFavorite(product.id)) {
+            this.items.push(product);
+            this.saveToStorage();
+        }
+    }
+
+    removeFromFavorites(productId) {
+        this.items = this.items.filter(item => item.id !== productId);
+        this.saveToStorage();
+    }
+
+    isFavorite(productId) {
+        return this.items.some(item => item.id === productId);
+    }
+
+    getItems() {
+        return this.items;
+    }
+
+    getTotalCount() {
+        return this.items.length;
+    }
+
+    updateFavoritesIcon() {
+        const total = this.getTotalCount();
+        const favIcons = document.querySelectorAll('.icon-favorite');
+        
+        favIcons.forEach(icon => {
+            let badge = icon.querySelector('.favorites-badge');
+            
+            if (!badge && total > 0) {
+                badge = document.createElement('span');
+                badge.className = 'favorites-badge';
+                icon.style.position = 'relative';
+                icon.appendChild(badge);
+            }
+            
+            if (badge) {
+                if (total > 0) {
+                    badge.textContent = total > 99 ? '99+' : total;
+                    badge.style.display = 'flex';
+                } else {
+                    badge.style.display = 'none';
+                }
+            }
+        });
+    }
+}
+
+const favorites = new Favorites();

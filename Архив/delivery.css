@@ -1,0 +1,572 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+button, input, select, textarea {
+    font-size: 16px;
+}
+
+/* Заголовки - Widock Trial */
+h1, h2, .logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+/* Навигация и основной текст */
+.nav a, 
+.delivery-subtitle,
+.card-text,
+.card-price,
+.card-note,
+.info-text p,
+.faq-question,
+.faq-answer,
+.footer-links a,
+.search-box input {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+/* Иконки */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+/* ===== SEARCH ===== */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+}
+
+/* ===== DELIVERY SECTION ===== */
+.delivery-section {
+    padding: 40px 0 80px;
+}
+
+.delivery-container {
+    text-align: left;
+}
+
+.delivery-title {
+    font-size: 60px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.delivery-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+/* Сетка карточек */
+.delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 70px;
+}
+
+.delivery-card {
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.delivery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card-icon svg {
+    stroke: #a6a86c;
+    transition: transform 0.3s ease;
+}
+
+.delivery-card:hover .card-icon svg {
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.card-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.card-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #a6a86c;
+    margin-bottom: 8px;
+}
+
+.card-note {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Блок с условиями доставки */
+.delivery-info {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 70px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.info-icon {
+    flex-shrink: 0;
+}
+
+.info-icon svg {
+    stroke: #a6a86c;
+}
+
+.info-text h4 {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-text p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* FAQ */
+.delivery-faq {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #a6a86c;
+}
+
+.faq-question svg {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question svg {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    padding: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 0 20px 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+/* ===== АНИМАЦИИ ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== МОБИЛЬНАЯ АДАПТАЦИЯ ===== */
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 900px) {
+    .delivery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .header-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .delivery-title {
+        font-size: 42px;
+        text-align: center;
+    }
+    
+    .delivery-subtitle {
+        text-align: center;
+    }
+    
+    .delivery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .delivery-info,
+    .delivery-faq {
+        padding: 25px;
+    }
+    
+    .info-title,
+    .faq-title {
+        font-size: 24px;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .faq-question {
+        font-size: 14px;
+        gap: 10px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .delivery-title {
+        font-size: 32px;
+    }
+    
+    .delivery-subtitle {
+        font-size: 14px;
+    }
+    
+    .card-title {
+        font-size: 18px;
+    }
+    
+    .card-text {
+        font-size: 13px;
+    }
+    
+    .card-price {
+        font-size: 16px;
+    }
+    
+    .info-text h4 {
+        font-size: 16px;
+    }
+    
+    .info-text p {
+        font-size: 13px;
+    }
+    
+    .faq-question {
+        font-size: 13px;
+    }
+    
+    .faq-answer {
+        font-size: 12px;
+    }
+    
+    .nav {
+        gap: 15px;
+    }
+    
+    .nav a {
+        font-size: 12px;
+    }
+    
+    .search-box {
+        width: 90%;
+        max-width: 280px;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+}

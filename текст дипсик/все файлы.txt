@@ -1,0 +1,3219 @@
+Idex.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMELIGHT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-row">
+        <a href="index.html" class="logo">HOMELIGHT</a>
+
+        <nav class="nav">
+            <a href="catalog.html">каталог</a>
+            <a href="#">доставка</a>
+            <a href="about.html">о нас</a>
+
+            <a href="#" class="icon icon-favorite">
+                <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20.8 8.6c0 5-8.8 11-8.8 11S3.2 13.6 3.2 8.6c0-2.6 2-4.6 4.6-4.6 1.6 0 3 .8 3.8 2.1C12.4 4.8 13.8 4 15.4 4c2.6 0 4.6 2 4.6 4.6z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c2.5-4 5.5-6 8-6s5.5 2 8 6"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 4h2l2 10h10l2-7H6"/>
+                    <circle cx="9" cy="20" r="1.5"/>
+                    <circle cx="17" cy="20" r="1.5"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="20" y1="20" x2="16.5" y2="16.5"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+        </div>
+    </div>
+</header>
+
+<hr class="divider">
+
+<section class="hero container">
+    <h1>HOMELIGHT</h1>
+    <p class="hero-text">
+        уникальный онлайн-магазин декоративных ламп, где каждый огонёк наполняет пространство теплом и уютом.
+    </p>
+</section>
+
+<hr class="divider">
+
+<section class="catalog container">
+    <h2>ДЛЯ ВАС</h2>
+
+    <div class="catalog-grid">
+        <div class="card">
+            <div class="card-img">
+                <img src="1.6.jpeg" alt="Лампа 1">
+            </div>
+            <p>настенные лампы</p>
+            <button>перейти</button>
+        </div>
+
+        <div class="card">
+            <img src="1.3.jpeg" alt="Лампа 2">
+            <p>настенные лампы</p>
+            <button>перейти</button>
+        </div>
+
+        <div class="card">
+            <img src="1.9.jpg" alt="Лампа 3">
+            <p>настенные лампы</p>
+            <button>перейти</button>
+        </div>
+    </div>
+</section>
+
+<section class="subscribe">
+    <div class="container">
+        <h2 class="subscribe-title">УЗНАЙТЕ ПЕРВЫМИ О АКЦИЯХ</h2>
+        <p class="sub-text">ВСЕГДА БУДЬТЕ ПЕРВЫМИ, КТО В КУРСЕ ОБ АКЦИЯХ И РАСПРОДАЖАХ</p>
+
+        <div class="subscribe-wrapper">
+            <div class="subscribe-image">
+                <img src="homelight.png" alt="Подписка">
+            </div>
+
+            <form class="subscribe-form" id="subscribeForm" novalidate>
+                <div class="form-group">
+                    <input 
+                        type="text" 
+                        id="fullname"
+                        placeholder="ФИО" 
+                        pattern="^[А-Яа-яЁё\s]+$"
+                        title="Пожалуйста, введите ФИО полностью на русском языке"
+                        required
+                    >
+                    <div class="error-message" id="fullnameError">Пожалуйста, введите ФИО полностью на русском языке</div>
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="tel" 
+                        id="phone"
+                        placeholder="ТЕЛЕФОН" 
+                        pattern="^\+\d{1,3}\d{10}$"
+                        title="Телефон должен начинаться с '+' и содержать код страны и номер"
+                        required
+                    >
+                    <div class="error-message" id="phoneError">Телефон должен начинаться с '+' и содержать 11-13 цифр</div>
+                </div>
+
+                <div class="form-group">
+                    <input 
+                        type="email" 
+                        id="email"
+                        placeholder="E-MAIL" 
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                        title="example: name@domain.com"
+                        required
+                    >
+                    <div class="error-message" id="emailError">example: name@domain.com</div>
+                </div>
+
+                <button type="submit" class="subscribe-btn" id="submitBtn">подписаться</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">HOMELIGHT</a>
+
+        <div class="footer-links">
+            <div class="col">
+                <a href="index.html">главная</a>
+                <a href="catalog.html">каталог</a>
+            </div>
+            <div class="col">
+                <a href="#">доставка</a>
+                <a href="#">избранное</a>
+            </div>
+            <div class="col">
+                <a href="#">корзина</a>
+                <a href="#">контакты</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Поиск по страницам
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.trim().toLowerCase();
+            if (query === 'каталог') {
+                window.location.href = 'catalog.html';
+            } else if (query === 'о нас') {
+                window.location.href = 'about.html';
+            } else if (query === 'главная') {
+                window.location.href = 'index.html';
+            } else {
+                alert('Найдено: ' + query);
+            }
+        }
+    });
+}
+
+// Эффект для сердечка - меняет цвет при наведении
+document.querySelectorAll('.icon-favorite').forEach(icon => {
+    const svg = icon.querySelector('.heart-icon');
+    if (svg) {
+        icon.addEventListener('mouseenter', function() {
+            svg.style.stroke = '#FF6161';
+            svg.style.fill = '#FF6161';
+        });
+        icon.addEventListener('mouseleave', function() {
+            svg.style.stroke = 'currentColor';
+            svg.style.fill = 'none';
+        });
+    }
+});
+
+// Валидация формы
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('subscribeForm');
+    if (!form) return;
+    
+    const fullnameInput = document.getElementById('fullname');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    let fullnameTouched = false;
+    let phoneTouched = false;
+    let emailTouched = false;
+    let formSubmitted = false;
+    
+    const patterns = {
+        fullname: /^[А-Яа-яЁё\s]+$/,
+        phone: /^\+\d{1,3}\d{10}$/,
+        email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    };
+    
+    function validateField(input, pattern, errorElementId, touched) {
+        const errorElement = document.getElementById(errorElementId);
+        const value = input.value.trim();
+        
+        if (touched || formSubmitted) {
+            if (value === '') {
+                input.setCustomValidity('Поле обязательно для заполнения');
+                errorElement.classList.add('visible');
+                return false;
+            } else if (!pattern.test(value)) {
+                input.setCustomValidity('Неверный формат');
+                errorElement.classList.add('visible');
+                return false;
+            } else {
+                input.setCustomValidity('');
+                errorElement.classList.remove('visible');
+                return true;
+            }
+        } else {
+            input.setCustomValidity('');
+            errorElement.classList.remove('visible');
+            return value !== '' && pattern.test(value);
+        }
+    }
+    
+    function validateForm() {
+        const isFullnameValid = validateField(fullnameInput, patterns.fullname, 'fullnameError', fullnameTouched);
+        const isPhoneValid = validateField(phoneInput, patterns.phone, 'phoneError', phoneTouched);
+        const isEmailValid = validateField(emailInput, patterns.email, 'emailError', emailTouched);
+        return isFullnameValid && isPhoneValid && isEmailValid;
+    }
+    
+    function updateButtonState() {
+        submitBtn.disabled = !validateForm();
+    }
+    
+    fullnameInput.addEventListener('input', function() { fullnameTouched = true; validateField(this, patterns.fullname, 'fullnameError', true); updateButtonState(); });
+    fullnameInput.addEventListener('blur', function() { fullnameTouched = true; validateField(this, patterns.fullname, 'fullnameError', true); updateButtonState(); });
+    
+    phoneInput.addEventListener('input', function() {
+        phoneTouched = true;
+        if (this.value && !this.value.startsWith('+')) {
+            this.value = '+' + this.value.replace(/[^0-9]/g, '');
+        }
+        validateField(this, patterns.phone, 'phoneError', true);
+        updateButtonState();
+    });
+    phoneInput.addEventListener('blur', function() { phoneTouched = true; validateField(this, patterns.phone, 'phoneError', true); updateButtonState(); });
+    
+    emailInput.addEventListener('input', function() {
+        emailTouched = true;
+        this.value = this.value.toLowerCase();
+        validateField(this, patterns.email, 'emailError', true);
+        updateButtonState();
+    });
+    emailInput.addEventListener('blur', function() { emailTouched = true; validateField(this, patterns.email, 'emailError', true); updateButtonState(); });
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        formSubmitted = true;
+        fullnameTouched = true;
+        phoneTouched = true;
+        emailTouched = true;
+        
+        if (validateForm()) {
+            alert('Спасибо за подписку!');
+            form.reset();
+            fullnameTouched = false;
+            phoneTouched = false;
+            emailTouched = false;
+            formSubmitted = false;
+            updateButtonState();
+        }
+    });
+    
+    updateButtonState();
+});
+</script>
+
+</body>
+</html>
+
+
+Index.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+/* Заголовки — Widock Trial */
+h1, h2, .logo, .subscribe-title, .about-title, .nav a {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+/* Основной текст везде — Gothic60 */
+.hero-text,
+.sub-text,
+.card p,
+.footer-links a,
+.search-box input,
+.subscribe-form input,
+.subscribe-btn,
+button,
+.card button,
+.about-text-light,
+.about-text-regular,
+.about-thanks {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+.catalog h2 {
+    font-weight: 700;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* HEADER */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+}
+
+/* SEARCH */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 90px;
+    font-weight: 800;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    font-size: 14px;
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.6;
+    text-transform: lowercase;
+}
+
+.hero-text::first-letter {
+    text-transform: uppercase;
+}
+
+/* CATALOG */
+.catalog {
+    padding: 60px 0;
+}
+
+.catalog h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 10px 0 20px;
+    text-transform: lowercase;
+}
+
+.card p::first-letter {
+    text-transform: uppercase;
+}
+
+.card button {
+    background: #a6a86c;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: auto;
+    width: fit-content;
+    font-size: 14px;
+}
+
+/* SUBSCRIBE */
+.subscribe {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.subscribe h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.sub-text {
+    font-size: 12px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 0.5px;
+}
+
+.subscribe-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscribe-image {
+    width: 380px;
+    height: 220px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.subscribe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 380px;
+}
+
+.subscribe-form input {
+    height: 50px;
+    border-radius: 14px;
+    border: 1.5px solid #ccc;
+    background: #f8f8f8;
+    padding-left: 16px;
+    font-size: 14px;
+}
+
+.subscribe-btn {
+    height: 50px;
+    border-radius: 14px;
+    border: none;
+    background: #a6a86c;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* FOOTER */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+}
+
+/* АДАПТАЦИЯ */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .header-row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav {
+        gap: 20px;
+        margin-left: auto;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: 3px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+        padding: 0 15px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .catalog h2 {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 15px 15px 25px;
+    }
+
+    .card img {
+        max-width: 300px;
+        margin: 0 auto 15px;
+    }
+
+    .card button {
+        min-width: 180px;
+    }
+
+    .subscribe-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .subscribe-image {
+        width: 100%;
+        max-width: 380px;
+        height: 200px;
+    }
+
+    .subscribe-form {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .card button {
+        min-width: 160px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+}
+
+
+
+Catalog.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — HOMELIGHT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="catalog.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-row">
+        <a href="index.html" class="logo">HOMELIGHT</a>
+
+        <nav class="nav">
+            <a href="catalog.html" class="nav-link active">каталог</a>
+            <a href="#" class="nav-link">доставка</a>
+            <a href="about.html" class="nav-link">о нас</a>
+
+            <a href="#" class="icon icon-favorite">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20.8 8.6c0 5-8.8 11-8.8 11S3.2 13.6 3.2 8.6c0-2.6 2-4.6 4.6-4.6 1.6 0 3 .8 3.8 2.1C12.4 4.8 13.8 4 15.4 4c2.6 0 4.6 2 4.6 4.6z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c2.5-4 5.5-6 8-6s5.5 2 8 6"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 4h2l2 10h10l2-7H6"/>
+                    <circle cx="9" cy="20" r="1.5"/>
+                    <circle cx="17" cy="20" r="1.5"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="20" y1="20" x2="16.5" y2="16.5"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+        </div>
+    </div>
+</header>
+
+<section class="catalog container">
+    <h1>КАТАЛОГ</h1>
+
+    <div id="catalogGrid" class="catalog-grid">
+        <!-- товары будут загружены через JS -->
+    </div>
+
+    <div class="pagination">
+        <span data-page="1" class="active">1</span>
+        <span data-page="2">2</span>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">HOMELIGHT</a>
+
+        <div class="footer-links">
+            <div class="col">
+                <a href="index.html">главная</a>
+                <a href="catalog.html">каталог</a>
+            </div>
+            <div class="col">
+                <a href="#">доставка</a>
+                <a href="#">избранное</a>
+            </div>
+            <div class="col">
+                <a href="#">корзина</a>
+                <a href="#">контакты</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Данные всех товаров из двух каталогов
+    const allProducts = {
+        1: [
+            { img: "1.1.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "1.2.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "1.3.jpeg", name: "настенные лампы", category: "настенные" },
+            { img: "1.4.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "1.5.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "1.6.jpeg", name: "настенные лампы", category: "настенные" },
+            { img: "1.7.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "1.8.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "1.9.jpg", name: "настенные лампы", category: "настенные" }
+        ],
+        2: [
+            { img: "2.1.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "2.2.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "2.3.jpg", name: "настенные лампы", category: "настенные" },
+            { img: "2.4.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "2.5.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "2.6.jpg", name: "настенные лампы", category: "настенные" },
+            { img: "2.7.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "2.8.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "2.9.jpg", name: "настенные лампы", category: "настенные" }
+        ]
+    };
+
+    let currentPage = 1;
+    let currentSearchTerm = "";
+
+    function renderCatalog() {
+        let products = [...allProducts[currentPage]];
+        
+        // Фильтрация по поиску
+        if (currentSearchTerm.trim() !== "") {
+            const searchLower = currentSearchTerm.trim().toLowerCase();
+            products = products.filter(product => 
+                product.name.toLowerCase().includes(searchLower) || 
+                product.category.toLowerCase().includes(searchLower)
+            );
+        }
+
+        const grid = document.getElementById("catalogGrid");
+        
+        if (products.length === 0) {
+            grid.innerHTML = `<div class="no-results">😕 Ничего не найдено. Попробуйте другой запрос.</div>`;
+            return;
+        }
+
+        grid.innerHTML = products.map(product => `
+            <div class="card">
+                <div class="card-img">
+                    <img src="${product.img}" alt="${product.name}">
+                </div>
+                <p>${product.name}</p>
+                <button onclick="alert('Переход в категорию: ${product.name}')">перейти</button>
+            </div>
+        `).join("");
+    }
+
+    function updateActivePage(page) {
+        const paginationSpans = document.querySelectorAll(".pagination span");
+        paginationSpans.forEach(span => {
+            const spanPage = parseInt(span.getAttribute("data-page"));
+            if (spanPage === page) {
+                span.classList.add("active");
+            } else {
+                span.classList.remove("active");
+            }
+        });
+        
+        // Обновляем URL без перезагрузки
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page);
+        window.history.pushState({}, "", url);
+    }
+
+    function changePage(page) {
+        if (page === currentPage) return;
+        currentPage = page;
+        updateActivePage(currentPage);
+        renderCatalog();
+    }
+
+    // Обработчики пагинации
+    document.querySelectorAll(".pagination span").forEach(span => {
+        span.addEventListener("click", (e) => {
+            const page = parseInt(span.getAttribute("data-page"));
+            changePage(page);
+        });
+    });
+
+    // Поиск
+    const searchInput = document.getElementById("searchInput");
+    let searchTimeout;
+    
+    searchInput.addEventListener("input", (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearchTerm = e.target.value;
+            renderCatalog();
+        }, 300);
+    });
+
+    // Чтение параметра page из URL при загрузке
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = parseInt(urlParams.get("page"));
+    if (pageParam === 2) {
+        currentPage = 2;
+        updateActivePage(2);
+    }
+    
+    renderCatalog();
+</script>
+
+</body>
+</html>
+
+
+
+Catalog.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+}
+
+.catalog {
+    padding: 0 0 60px 0;
+}
+
+.catalog h1 {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    margin: 20px 0 40px;
+    letter-spacing: 2px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card-img img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img img {
+    transform: scale(1.02);
+}
+
+.card p {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 10px 0 20px;
+    text-transform: lowercase;
+}
+
+.card p::first-letter {
+    text-transform: uppercase;
+}
+
+.card button {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    background: #a6a86c;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: auto;
+    width: fit-content;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.card button:hover {
+    background: #8b8d5a;
+    transform: scale(1.02);
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+    color: #666;
+    grid-column: 1 / -1;
+}
+
+.pagination {
+    text-align: center;
+    margin: 50px 0 30px;
+}
+
+.pagination span {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.pagination span:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.pagination span.active {
+    background-color: #a6a86c;
+    color: white;
+}
+
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .header-row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .catalog h1 {
+        font-size: 48px;
+    }
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .card:hover {
+        transform: scale(1.03);
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog h1 {
+        font-size: 36px;
+    }
+    .search-box {
+        width: 100%;
+        max-width: 320px;
+    }
+    .nav {
+        gap: 15px;
+    }
+}
+
+
+
+
+Catalog2.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — HOMELIGHT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="catalog2.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-row">
+        <a href="index.html" class="logo">HOMELIGHT</a>
+
+        <nav class="nav">
+            <a href="catalog.html" class="nav-link">каталог</a>
+            <a href="#" class="nav-link">доставка</a>
+            <a href="about.html" class="nav-link">о нас</a>
+
+            <a href="#" class="icon icon-favorite">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20.8 8.6c0 5-8.8 11-8.8 11S3.2 13.6 3.2 8.6c0-2.6 2-4.6 4.6-4.6 1.6 0 3 .8 3.8 2.1C12.4 4.8 13.8 4 15.4 4c2.6 0 4.6 2 4.6 4.6z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c2.5-4 5.5-6 8-6s5.5 2 8 6"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 4h2l2 10h10l2-7H6"/>
+                    <circle cx="9" cy="20" r="1.5"/>
+                    <circle cx="17" cy="20" r="1.5"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="20" y1="20" x2="16.5" y2="16.5"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+        </div>
+    </div>
+</header>
+
+<section class="catalog container">
+    <h1>КАТАЛОГ</h1>
+
+    <div id="catalogGrid" class="catalog-grid">
+        <!-- товары будут загружены через JS -->
+    </div>
+
+    <div class="pagination">
+        <span data-page="1">1</span>
+        <span data-page="2" class="active">2</span>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">HOMELIGHT</a>
+
+        <div class="footer-links">
+            <div class="col">
+                <a href="index.html">главная</a>
+                <a href="catalog.html">каталог</a>
+            </div>
+            <div class="col">
+                <a href="#">доставка</a>
+                <a href="#">избранное</a>
+            </div>
+            <div class="col">
+                <a href="#">корзина</a>
+                <a href="#">контакты</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Данные всех товаров из двух каталогов (полностью идентичны для поиска)
+    const allProducts = {
+        1: [
+            { img: "1.1.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "1.2.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "1.3.jpeg", name: "настенные лампы", category: "настенные" },
+            { img: "1.4.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "1.5.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "1.6.jpeg", name: "настенные лампы", category: "настенные" },
+            { img: "1.7.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "1.8.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "1.9.jpg", name: "настенные лампы", category: "настенные" }
+        ],
+        2: [
+            { img: "2.1.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "2.2.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "2.3.jpg", name: "настенные лампы", category: "настенные" },
+            { img: "2.4.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "2.5.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "2.6.jpg", name: "настенные лампы", category: "настенные" },
+            { img: "2.7.jpg", name: "напольные лампы", category: "напольные" },
+            { img: "2.8.jpg", name: "потолочные лампы", category: "потолочные" },
+            { img: "2.9.jpg", name: "настенные лампы", category: "настенные" }
+        ]
+    };
+
+    let currentPage = 2;
+    let currentSearchTerm = "";
+
+    function renderCatalog() {
+        let products = [...allProducts[currentPage]];
+        
+        if (currentSearchTerm.trim() !== "") {
+            const searchLower = currentSearchTerm.trim().toLowerCase();
+            products = products.filter(product => 
+                product.name.toLowerCase().includes(searchLower) || 
+                product.category.toLowerCase().includes(searchLower)
+            );
+        }
+
+        const grid = document.getElementById("catalogGrid");
+        
+        if (products.length === 0) {
+            grid.innerHTML = `<div class="no-results">😕 Ничего не найдено. Попробуйте другой запрос.</div>`;
+            return;
+        }
+
+        grid.innerHTML = products.map(product => `
+            <div class="card">
+                <div class="card-img">
+                    <img src="${product.img}" alt="${product.name}">
+                </div>
+                <p>${product.name}</p>
+                <button onclick="alert('Переход в категорию: ${product.name}')">перейти</button>
+            </div>
+        `).join("");
+    }
+
+    function updateActivePage(page) {
+        const paginationSpans = document.querySelectorAll(".pagination span");
+        paginationSpans.forEach(span => {
+            const spanPage = parseInt(span.getAttribute("data-page"));
+            if (spanPage === page) {
+                span.classList.add("active");
+            } else {
+                span.classList.remove("active");
+            }
+        });
+        
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", page);
+        window.history.pushState({}, "", url);
+    }
+
+    function changePage(page) {
+        if (page === currentPage) return;
+        
+        if (page === 1) {
+            window.location.href = "catalog.html?page=1";
+        } else {
+            window.location.href = "catalog2.html?page=2";
+        }
+    }
+
+    document.querySelectorAll(".pagination span").forEach(span => {
+        span.addEventListener("click", (e) => {
+            const page = parseInt(span.getAttribute("data-page"));
+            changePage(page);
+        });
+    });
+
+    const searchInput = document.getElementById("searchInput");
+    let searchTimeout;
+    
+    searchInput.addEventListener("input", (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearchTerm = e.target.value;
+            renderCatalog();
+        }, 300);
+    });
+
+    renderCatalog();
+</script>
+
+</body>
+</html>
+
+
+
+Catalog2.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+}
+
+.catalog {
+    padding: 0 0 60px 0;
+}
+
+.catalog h1 {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 60px;
+    margin: 20px 0 40px;
+    letter-spacing: 2px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card-img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card-img img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img img {
+    transform: scale(1.02);
+}
+
+.card p {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 10px 0 20px;
+    text-transform: lowercase;
+}
+
+.card p::first-letter {
+    text-transform: uppercase;
+}
+
+.card button {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    background: #a6a86c;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: auto;
+    width: fit-content;
+    font-size: 14px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.card button:hover {
+    background: #8b8d5a;
+    transform: scale(1.02);
+}
+
+.no-results {
+    text-align: center;
+    font-size: 18px;
+    padding: 40px;
+    color: #666;
+    grid-column: 1 / -1;
+}
+
+.pagination {
+    text-align: center;
+    margin: 50px 0 30px;
+}
+
+.pagination span {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.pagination span:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.pagination span.active {
+    background-color: #a6a86c;
+    color: white;
+}
+
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .header-row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    .catalog h1 {
+        font-size: 48px;
+    }
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .card:hover {
+        transform: scale(1.03);
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog h1 {
+        font-size: 36px;
+    }
+    .search-box {
+        width: 100%;
+        max-width: 320px;
+    }
+    .nav {
+        gap: 15px;
+    }
+}
+
+
+
+
+About.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOMELIGHT - О нас</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-row">
+        <a href="index.html" class="logo">HOMELIGHT</a>
+
+        <nav class="nav">
+            <a href="catalog.html">каталог</a>
+            <a href="#">доставка</a>
+            <a href="about.html" class="active">о нас</a>
+
+            <a href="#" class="icon icon-favorite">
+                <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20.8 8.6c0 5-8.8 11-8.8 11S3.2 13.6 3.2 8.6c0-2.6 2-4.6 4.6-4.6 1.6 0 3 .8 3.8 2.1C12.4 4.8 13.8 4 15.4 4c2.6 0 4.6 2 4.6 4.6z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c2.5-4 5.5-6 8-6s5.5 2 8 6"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 4h2l2 10h10l2-7H6"/>
+                    <circle cx="9" cy="20" r="1.5"/>
+                    <circle cx="17" cy="20" r="1.5"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="20" y1="20" x2="16.5" y2="16.5"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+        </div>
+    </div>
+</header>
+
+<hr class="divider">
+
+<main>
+    <div class="about-section">
+        <div class="about-left">
+            <h1 class="about-title">О НАС</h1>
+            <p class="about-text-light">
+                Мы - команда мастеров, которые верят в то,<br>
+                что можно создать магию света и тепла
+            </p>
+            <div class="about-spacer" style="height: 20px;"></div>
+            <div class="about-text-regular">
+                <p>
+                    Наша задача - предложить вам не просто продукты,<br>
+                    а уникальный опыт, наполненный уютом и атмосферой.<br>
+                    В нашем магазине вы сможете найти светильник<br>
+                    на любой вкус и цвет, а наша команда поможет вам<br>
+                    его оформить, подскажет как его правильно разместить<br>
+                    и ответит на все интересующие вас вопросы.
+                </p>
+                <p class="about-thanks">
+                    Спасибо, что выбираете нас! Хороших покупок!
+                </p>
+            </div>
+        </div>
+        <div class="about-right">
+            <div class="about-image">
+                <img src="about.jpg" alt="Интерьер с светильниками HOMELIGHT">
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <a href="index.html" class="logo" style="text-decoration: none; color: inherit;">HOMELIGHT</a>
+        <div class="footer-links">
+            <div class="col">
+                <a href="index.html">главная</a>
+                <a href="catalog.html">каталог</a>
+            </div>
+            <div class="col">
+                <a href="#">доставка</a>
+                <a href="#">избранное</a>
+            </div>
+            <div class="col">
+                <a href="#">корзина</a>
+                <a href="#">контакты</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Поиск по страницам
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.trim().toLowerCase();
+            if (query === 'каталог') window.location.href = 'catalog.html';
+            else if (query === 'о нас') window.location.href = 'about.html';
+            else if (query === 'главная') window.location.href = 'index.html';
+            else alert('По запросу "' + query + '" ничего не найдено');
+        }
+    });
+}
+
+// Эффект для сердечка - меняет цвет при наведении
+document.querySelectorAll('.icon-favorite').forEach(icon => {
+    const svg = icon.querySelector('.heart-icon');
+    if (svg) {
+        icon.addEventListener('mouseenter', function() {
+            svg.style.stroke = '#FF6161';
+            svg.style.fill = '#FF6161';
+        });
+        icon.addEventListener('mouseleave', function() {
+            svg.style.stroke = 'currentColor';
+            svg.style.fill = 'none';
+        });
+    }
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+About.css
+
+/* about.css - стили для страницы "О нас" */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+/* Заголовки - Widock Trial */
+h1, .logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+/* Навигация и основной текст - Gothic60 */
+.nav a, 
+.about-text-light, 
+.about-text-regular, 
+.about-thanks,
+.search-box input,
+.footer-links a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* ===== HEADER ===== */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+/* Иконки */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+/* Сердечко (избранное) - при наведении заполняется цветом FF6161 */
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+/* Остальные иконки при наведении */
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+/* ===== SEARCH ===== */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    gap: 60px;
+}
+
+.about-left {
+    flex: 1;
+}
+
+.about-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.about-image:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-title {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    color: #111;
+}
+
+.about-text-light {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.about-text-regular {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.about-text-regular p {
+    margin-bottom: 15px;
+}
+
+.about-thanks {
+    margin-top: 30px;
+    font-weight: 400;
+    color: #111;
+    font-size: 16px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0 30px;
+    }
+    
+    .about-section {
+        padding: 40px 30px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-section {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    
+    .about-left {
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .about-right {
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    .about-title {
+        font-size: 42px;
+    }
+    
+    .about-text-light br,
+    .about-text-regular br {
+        display: none;
+    }
+    
+    .about-thanks {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .logo {
+        font-size: 24px;
+    }
+    
+    .nav {
+        gap: 20px;
+        margin-left: auto;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-title {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    
+    .about-text-light {
+        font-size: 16px;
+    }
+    
+    .about-text-regular {
+        font-size: 14px;
+    }
+    
+    .about-thanks {
+        font-size: 14px;
+    }
+    
+    .about-section {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav {
+        gap: 15px;
+    }
+    
+    .nav a {
+        font-size: 12px;
+    }
+    
+    .about-title {
+        font-size: 32px;
+    }
+}
+
+Trashbin.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина — HOMELIGHT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="trashbin.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-row">
+        <a href="index.html" class="logo">HOMELIGHT</a>
+
+        <nav class="nav">
+            <a href="catalog.html">каталог</a>
+            <a href="#">доставка</a>
+            <a href="about.html">о нас</a>
+
+            <a href="#" class="icon icon-favorite">
+                <svg class="heart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M20.8 8.6c0 5-8.8 11-8.8 11S3.2 13.6 3.2 8.6c0-2.6 2-4.6 4.6-4.6 1.6 0 3 .8 3.8 2.1C12.4 4.8 13.8 4 15.4 4c2.6 0 4.6 2 4.6 4.6z"/>
+                </svg>
+            </a>
+
+            <a href="#" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="8" r="4"/>
+                    <path d="M4 20c2.5-4 5.5-6 8-6s5.5 2 8 6"/>
+                </svg>
+            </a>
+
+            <a href="trashbin.html" class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M3 4h2l2 10h10l2-7H6"/>
+                    <circle cx="9" cy="20" r="1.5"/>
+                    <circle cx="17" cy="20" r="1.5"/>
+                </svg>
+            </a>
+        </nav>
+    </div>
+
+    <div class="search-wrapper">
+        <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="11" cy="11" r="7"/>
+                <line x1="20" y1="20" x2="16.5" y2="16.5"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Поиск...">
+        </div>
+    </div>
+</header>
+
+<hr class="divider">
+
+<section class="cart">
+    <div class="cart-container">
+        <h1 class="cart-title">КОРЗИНА</h1>
+        <div class="cart-subtitle">СОСТАВ ЗАКАЗА</div>
+
+        <div class="empty-cart">
+            <div class="empty-text">ВАША КОРЗИНА ПУСТА</div>
+        </div>
+
+        <div class="bottom-line"></div>
+
+        <div class="summary">
+            <div class="summary-left">ИТОГ</div>
+            <div class="summary-right">
+                <div class="row">
+                    <span>СТОИМОСТЬ ЗАКАЗА</span>
+                    <span>0 ₽</span>
+                </div>
+                <div class="row">
+                    <span>КОЛИЧЕСТВО ЕДИНИЦ В ЗАКАЗ</span>
+                    <span>00</span>
+                </div>
+                <div class="row">
+                    <span>СТОИМОСТЬ ДОСТАВКИ</span>
+                    <span>0 ₽</span>
+                </div>
+                <div class="total">
+                    <span>ИТОГ</span>
+                    <span>0 ₽</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <a href="index.html" class="logo">HOMELIGHT</a>
+
+        <div class="footer-links">
+            <div class="col">
+                <a href="index.html">главная</a>
+                <a href="catalog.html">каталог</a>
+            </div>
+            <div class="col">
+                <a href="#">доставка</a>
+                <a href="#">избранное</a>
+            </div>
+            <div class="col">
+                <a href="trashbin.html">корзина</a>
+                <a href="contact.html">контакты</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Поиск по страницам
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const query = this.value.trim().toLowerCase();
+            if (query === 'каталог') {
+                window.location.href = 'catalog.html';
+            } else if (query === 'о нас') {
+                window.location.href = 'about.html';
+            } else if (query === 'главная') {
+                window.location.href = 'index.html';
+            } else if (query === 'корзина') {
+                window.location.href = 'trashbin.html';
+            } else if (query === 'контакты') {
+                window.location.href = 'contact.html';
+            } else {
+                alert('По запросу "' + query + '" ничего не найдено');
+            }
+        }
+    });
+}
+
+// Эффект для сердечка - меняет цвет при наведении
+document.querySelectorAll('.icon-favorite').forEach(icon => {
+    const svg = icon.querySelector('.heart-icon');
+    if (svg) {
+        icon.addEventListener('mouseenter', function() {
+            svg.style.stroke = '#FF6161';
+            svg.style.fill = '#FF6161';
+        });
+        icon.addEventListener('mouseleave', function() {
+            svg.style.stroke = 'currentColor';
+            svg.style.fill = 'none';
+        });
+    }
+});
+
+// Добавляем класс для анимации пустой корзины (уже есть в CSS)
+// Дополнительно добавляем анимацию для summary элементов
+document.querySelectorAll('.row, .total').forEach(el => {
+    el.style.animation = 'fadeInUp 0.6s ease 0.3s both';
+});
+</script>
+
+</body>
+</html>
+
+
+
+Trashbin.css
+
+@import url("style.css");
+
+/* Дополнительные стили для страницы корзины, сохраняющие стилистику index.html */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Заголовки — Widock Trial */
+.cart-title, 
+.cart-subtitle, 
+.summary-left, 
+.total,
+.logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+}
+
+/* Основной текст — Gothic60 */
+.hero-text,
+.sub-text,
+.card p,
+.footer-links a,
+.search-box input,
+.subscribe-form input,
+.subscribe-btn,
+button,
+.card button,
+.about-text-light,
+.about-text-regular,
+.about-thanks,
+.row span,
+.empty-text,
+.nav a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+}
+
+/* Логотип */
+.logo {
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+/* Навигация */
+.nav a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s ease;
+    font-weight: 400;
+    text-transform: lowercase;
+    position: relative;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+/* Анимация подчеркивания как на index */
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #111;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+/* Иконки как на других страницах */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+/* Сердечко (избранное) - при наведении заполняется цветом FF6161 */
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+/* Остальные иконки при наведении */
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+    transform: scale(1.1);
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Контейнер для левого выравнивания контента корзины */
+.cart-container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+/* HEADER */
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+/* SEARCH */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+    transform: scale(1.02);
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    stroke: #111;
+    transition: stroke 0.3s ease;
+}
+
+.search-box:focus-within svg {
+    stroke: #a6a86c;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.search-box:focus-within input::placeholder {
+    color: #a6a86c;
+}
+
+/* CART SECTION */
+.cart {
+    padding: 0 0 60px;
+    flex: 1;
+}
+
+.cart-title {
+    font-size: 72px;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    font-weight: 800;
+    text-align: left;
+    animation: fadeInUp 0.6s ease;
+}
+
+.cart-subtitle {
+    font-size: 14px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    font-weight: 800;
+    opacity: 0.8;
+    text-align: left;
+    animation: fadeInUp 0.6s ease 0.1s both;
+}
+
+/* Empty cart - по центру с анимацией */
+.empty-cart {
+    text-align: center;
+    margin: 100px 0 100px;
+    animation: fadeInUp 0.6s ease 0.2s both;
+}
+
+.empty-text {
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: 400;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.empty-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #a6a86c;
+    animation: fadeInWidth 0.6s ease 0.4s both;
+}
+
+/* Линия */
+.bottom-line {
+    border-top: 1px solid #bbb;
+    margin-bottom: 40px;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Блок итога */
+.summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    animation: fadeInUp 0.6s ease 0.3s both;
+}
+
+.summary-left {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.summary-right {
+    width: 420px;
+    font-size: 12px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: transform 0.3s ease;
+    padding: 5px 0;
+}
+
+.row:hover {
+    transform: translateX(5px);
+}
+
+.row span:first-child {
+    font-weight: 500;
+}
+
+.row span:last-child {
+    font-weight: 600;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 800;
+    padding-top: 12px;
+    border-top: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.total:hover {
+    background: #f0f0f0;
+    padding: 12px 10px 0 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* FOOTER */
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+    transform: translateX(3px);
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInWidth {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 40px;
+        opacity: 1;
+    }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cart-container {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .header-row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav {
+        gap: 20px;
+        margin-left: auto;
+    }
+
+    .cart-title {
+        font-size: 42px;
+        letter-spacing: 2px;
+    }
+
+    .cart-subtitle {
+        font-size: 12px;
+    }
+
+    .summary {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .summary-right {
+        width: 100%;
+    }
+
+    .empty-cart {
+        margin: 60px 0;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-title {
+        font-size: 32px;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 12px;
+    }
+
+    .row {
+        font-size: 11px;
+    }
+    
+    .total {
+        font-size: 14px;
+    }
+    
+    .empty-text {
+        font-size: 12px;
+    }
+}
+
+
+
+
+Card.html
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка товара</title>
+    <link rel="stylesheet" href="card.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Крестик -->
+    <div class="close">✕</div>
+
+    <!-- Заголовок -->
+    <h1 class="title">КАТАЛОГ</h1>
+
+    <!-- Картинка -->
+    <div class="image">
+        <img src="1.6.jpeg" alt="лампа">
+    </div>
+
+    <!-- Правая часть -->
+    <div class="content">
+
+        <div class="product-name">
+            декоративная напольная лампа “merga”
+        </div>
+
+        <div class="description">
+            материал основания: керамика
+
+            цвет основания: черный
+
+            стиль: неоклассический, скандинавский, модерн
+        </div>
+
+        <div class="bottom">
+            <div class="price">12.999 ₽</div>
+            <div class="cart">В КОРЗИНУ</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+Card.css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ШРИФТЫ ИЗ INDEX */
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+}
+
+body {
+    background: #efefef;
+    font-family: 'Gothic60', sans-serif;
+    color: #111;
+}
+
+/* ОБЩИЙ КОНТЕЙНЕР */
+.container {
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* КРЕСТИК */
+.close {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* ЗАГОЛОВОК */
+.title {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    font-size: 96px;
+    font-family: 'Widock Trial';
+    letter-spacing: 4px;
+}
+
+/* КАРТИНКА */
+.image {
+    position: absolute;
+    top: 250px;
+    left: 80px;
+    width: 320px;
+    height: 320px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ПРАВАЯ ЧАСТЬ */
+.content {
+    position: absolute;
+    top: 250px;
+    left: 450px;
+    width: 650px;
+}
+
+/* НАЗВАНИЕ */
+.product-name {
+    background: #b4b67a;
+    padding: 18px 25px;
+    border-radius: 18px;
+    font-size: 20px;
+}
+
+/* ОПИСАНИЕ */
+.description {
+    background: #e9e9e9;
+    margin-top: 20px;
+    padding: 22px 25px;
+    border-radius: 18px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* НИЖНИЙ БЛОК */
+.bottom {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* ЦЕНА */
+.price {
+    background: #e9e9e9;
+    padding: 18px 35px;
+    border-radius: 14px;
+    font-size: 18px;
+}
+
+/* КНОПКА */
+.cart {
+    background: #e9e9e9;
+    padding: 18px 35px;
+    border-radius: 14px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cart:hover {
+    background: #dcdcdc;
+}
+

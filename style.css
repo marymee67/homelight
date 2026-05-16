@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Widock Trial';
+    src: url('Widock TRIAL Bold.otf') format('opentype');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gothic60';
+    src: url('Gothic60-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+body {
+    background: #f3f3f3;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    color: #111;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header {
+    padding: 25px 0 35px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.3s;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #a6a86c;
+}
+
+.nav a.active {
+    color: #a6a86c;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.icon svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
+    transition: all 0.3s ease;
+}
+
+.icon-favorite:hover svg {
+    stroke: #FF6161 !important;
+    fill: #FF6161 !important;
+}
+
+.icon:not(.icon-favorite):hover svg {
+    stroke: #a6a86c;
+}
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #111;
+    border-radius: 20px;
+    padding: 6px 14px;
+    width: 320px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus-within {
+    border-color: #a6a86c;
+}
+
+.search-box svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Gothic60', 'Manrope', sans-serif;
+}
+
+.hero {
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 72px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+.catalog {
+    padding: 60px 0;
+}
+
+.catalog h2 {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #111;
+}
+
+.card button {
+    background: #a6a86c;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+    font-family: 'Gothic60', sans-serif;
+}
+
+.card button:hover {
+    background: #8b8d5a;
+}
+
+.subscribe {
+    background: #e6e6e6;
+    padding: 60px 0;
+}
+
+.subscribe-title {
+    font-family: 'Widock Trial', 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.sub-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.subscribe-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.subscribe-image {
+    width: 380px;
+    height: 220px;
+border-radius: 0 24px 0 24px;
+    overflow: hidden;
+}
+
+.subscribe-image img {
+    width: 100%;
+    border-radius: 0 24px 0 24px;
+}
+
+.subscribe-form {
+    flex: 1;
+    max-width: 400px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid #ddd;
+    border-radius: 30px;
+    font-size: 14px;
+    font-family: 'Gothic60', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #a6a86c;
+}
+
+.error-message {
+    font-size: 12px;
+    color: #ff6161;
+    margin-top: 5px;
+    margin-left: 15px;
+    display: none;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+.subscribe-btn {
+    width: 100%;
+    padding: 14px;
+    background: #a6a86c;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-family: 'Gothic60', sans-serif;
+}
+
+.subscribe-btn:hover {
+    background: #8b8d5a;
+}
+
+.subscribe-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.footer {
+    background: #e6e6e6;
+    padding: 40px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-links .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #111;
+    transition: color 0.3s;
+    font-family: 'Gothic60', sans-serif;
+}
+
+.footer-links a:hover {
+    color: #a6a86c;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .header-row {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 48px;
+    }
+    
+    .hero-text {
+        font-size: 16px;
+    }
+    
+    .catalog h2 {
+        font-size: 36px;
+    }
+    
+    .catalog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .subscribe-title {
+        font-size: 28px;
+    }
+    
+    .subscribe-wrapper {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .footer-links .col {
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .catalog h2 {
+        font-size: 28px;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .nav {
+        gap: 15px;
+    }
+    
+    .nav a {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Карточка товара — HOMELIGHT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="cart-notification.css">
+    <style>
+        /* Дополнительные гарантии стилей для кнопки избранного — подстраховка, если внешние CSS не загрузятся */
+        .favorite-btn {
+            background: #e9e9e9;
+            padding: 18px 20px;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-family: inherit;
+        }
+        .favorite-btn:hover {
+            background: #FF6161;
+            transform: scale(1.02);
+        }
+        .favorite-btn:hover svg {
+            stroke: white !important;
+            fill: white !important;
+        }
+        .favorite-btn.active {
+            background: #FF6161;
+        }
+        .favorite-btn.active svg {
+            fill: white;
+            stroke: white;
+        }
+        /* Анимация для уведомлений */
+        .cart-notification {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #a6a86c;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-family: 'Gothic60', sans-serif;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            pointer-events: none;
+        }
+        .cart-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        /* мелкие правки для мобильной адаптации */
+        @media (max-width: 768px) {
+            .favorite-btn, .cart, .price {
+                min-width: 140px;
+            }
+            .bottom {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="close" onclick="goBack()">✕</div>
+
+    <h1 class="title">КАТАЛОГ</h1>
+
+    <div class="image" id="productImage">
+        <img id="mainImage" src="" alt="лампа">
+    </div>
+
+    <div class="content">
+        <div class="product-name" id="productName">
+            декоративная напольная лампа "merga"
+        </div>
+
+        <div class="description" id="productDescription">
+            материал основания: керамика<br>
+            цвет основания: черный<br>
+            стиль: неоклассический, скандинавский, модерн
+        </div>
+
+        <div class="bottom">
+            <div class="price" id="productPrice">12.999 ₽</div>
+            <div class="cart" id="addToCartBtn">В КОРЗИНУ</div>
+            <div class="favorite-btn" id="addToFavoriteBtn" aria-label="Добавить в избранное">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="28" height="28">
+                    <path d="M20.8 8.6c0 5-8.8 11-8.8 11S3.2 13.6 3.2 8.6c0-2.6 2-4.6 4.6-4.6 1.6 0 3 .8 3.8 2.1C12.4 4.8 13.8 4 15.4 4c2.6 0 4.6 2 4.6 4.6z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Подключаем все необходимые JS модули -->
+<script src="product-data.js"></script>
+<script src="cart.js"></script>
+<script src="favorites.js"></script>
+
+<script>
+    // --------------------------------------------------------------
+    // 1. Получаем ID товара из URL
+    // --------------------------------------------------------------
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+    let currentProduct = null;
+
+    // Функция для получения товара по id из объединённого массива (продукты с первой и второй страницы)
+    function getProductByIdFromAllSources(id) {
+        // Если в глобальной области есть products (catalog) и productsPage2, используем их
+        if (typeof products !== 'undefined' && Array.isArray(products)) {
+            const found = products.find(p => p.id === id);
+            if (found) return found;
+        }
+        if (typeof productsPage2 !== 'undefined' && Array.isArray(productsPage2)) {
+            const found = productsPage2.find(p => p.id === id);
+            if (found) return found;
+        }
+        // Если нет глобальных данных, но есть функция getProductById (из product-data.js) – используем её
+        if (typeof getProductById === 'function') {
+            return getProductById(id);
+        }
+        return null;
+    }
+
+    // Инициализация данных товара
+    if (productId) {
+        currentProduct = getProductByIdFromAllSources(productId);
+        
+        // Если товар всё ещё не найден, но есть дефолтные данные для демо — создаём заглушку
+        if (!currentProduct) {
+            // Фallback: создаём объект на основе id, чтобы интерфейс не ломался
+            console.warn('Товар с id=' + productId + ' не найден в product-data.js, создаются тестовые данные');
+            currentProduct = {
+                id: productId,
+                name: 'декоративная напольная лампа "merga"',
+                img: 'https://via.placeholder.com/320x320?text=Lamp',
+                color: 'черный',
+                style: 'неоклассический, скандинавский, модерн',
+                description: 'Элегантная керамическая лампа, создающая мягкий свет.',
+                price: 12999,
+                category: 'lamp'
+            };
+        }
+        
+        // Заполняем DOM актуальными данными
+        if (currentProduct) {
+            document.getElementById('mainImage').src = currentProduct.img || 'https://via.placeholder.com/320x320?text=No+Image';
+            document.getElementById('productName').textContent = currentProduct.name || 'Товар';
+            
+            // Формируем описание с деталями
+            let descHtml = `материал основания: керамика<br>цвет основания: ${currentProduct.color || 'черный'}<br>стиль: ${currentProduct.style || 'неоклассический, скандинавский, модерн'}`;
+            if (currentProduct.description && currentProduct.description.trim() !== '') {
+                descHtml += `<br><br>${currentProduct.description}`;
+            }
+            document.getElementById('productDescription').innerHTML = descHtml;
+            
+            const priceValue = currentProduct.price || 12999;
+            document.getElementById('productPrice').textContent = priceValue.toLocaleString('ru-RU') + ' ₽';
+        }
+    } else {
+        // Если id не передан, показываем сообщение, но стараемся подгрузить демо-товар
+        document.getElementById('productName').textContent = 'Товар не выбран';
+        document.getElementById('productDescription').innerHTML = 'Пожалуйста, вернитесь в каталог и выберите товар.';
+        document.getElementById('productPrice').textContent = '0 ₽';
+        // Заглушка для избежания ошибок
+        currentProduct = {
+            id: 0,
+            name: 'Пример товара',
+            img: '',
+            price: 0,
+            category: 'none'
+        };
+    }
+
+    // --------------------------------------------------------------
+    // 2. Работа с корзиной (через глобальный объект cart из cart.js)
+    // --------------------------------------------------------------
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    if (addToCartBtn && currentProduct && currentProduct.id) {
+        // Удаляем старые обработчики, чтобы не дублировать
+        const newBtn = addToCartBtn.cloneNode(true);
+        addToCartBtn.parentNode.replaceChild(newBtn, addToCartBtn);
+        const finalCartBtn = document.getElementById('addToCartBtn');
+        
+        finalCartBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!currentProduct || !currentProduct.id) {
+                showNotification('Ошибка: товар не найден');
+                return;
+            }
+            // Добавляем товар в корзину через класс Cart (глобальный экземпляр cart)
+            if (typeof cart !== 'undefined' && cart.addItem) {
+                cart.addItem({
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    img: currentProduct.img,
+                    category: currentProduct.category || 'lamp'
+                });
+                // Визуальный эффект нажатия
+                finalCartBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    if (finalCartBtn) finalCartBtn.style.transform = 'scale(1)';
+                }, 200);
+            } else {
+                console.error('Корзина (cart) не инициализирована');
+                showNotification('Система корзины временно недоступна');
+            }
+        });
+    }
+
+    // --------------------------------------------------------------
+    // 3. ИЗБРАННОЕ: ПОЛНОЦЕННАЯ РАБОТА СЕРДЦА (добавление/удаление)
+    // --------------------------------------------------------------
+    const favoriteBtn = document.getElementById('addToFavoriteBtn');
+    
+    // Функция обновления внешнего вида кнопки в зависимости от статуса в избранном
+    function updateFavoriteVisual(productId) {
+        if (!favoriteBtn) return;
+        // Проверяем, находится ли товар в избранном через глобальный favorites
+        let isFav = false;
+        if (typeof favorites !== 'undefined' && favorites.isFavorite) {
+            isFav = favorites.isFavorite(productId);
+        } else if (typeof FavoritesManager !== 'undefined') {
+            // fallback, если используется другой нейминг
+            isFav = FavoritesManager.isFavorite(productId);
+        } else {
+            // Если favorites нет, пробуем через localStorage напрямую (для совместимости)
+            try {
+                const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
+                isFav = favs.some(item => item.id === productId);
+            } catch(e) { isFav = false; }
+        }
+        
+        if (isFav) {
+            favoriteBtn.classList.add('active');
+            const svg = favoriteBtn.querySelector('svg');
+            if (svg) {
+                svg.style.fill = '#FF6161';
+                svg.style.stroke = '#FF6161';
+            }
+        } else {
+            favoriteBtn.classList.remove('active');
+            const svg = favoriteBtn.querySelector('svg');
+            if (svg) {
+                svg.style.fill = 'none';
+                svg.style.stroke = 'currentColor';
+            }
+        }
+    }
+    
+    // Функция добавления товара в избранное с проверкой на дубликаты
+    function addCurrentToFavorites() {
+        if (!currentProduct || !currentProduct.id) {
+            showNotification('Не удалось добавить в избранное');
+            return false;
+        }
+        
+        // Используем глобальный объект favorites (из favorites.js)
+        if (typeof favorites !== 'undefined' && favorites.addToFavorites) {
+            // Проверяем, есть ли уже в избранном, чтобы не дублировать уведомление
+            if (!favorites.isFavorite(currentProduct.id)) {
+                favorites.addToFavorites({
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    img: currentProduct.img,
+                    category: currentProduct.category || 'lamp'
+                });
+                updateFavoriteVisual(currentProduct.id);
+                showNotification('Добавлено в избранное ❤️');
+                return true;
+            } else {
+                // Уже есть в избранном — ничего не делаем, но можно сообщить
+                showNotification('Товар уже в избранном');
+                return false;
+            }
+        } 
+        // Если favorites не определён, но есть localStorage — реализуем базовое сохранение (для совместимости без отдельного файла)
+        else {
+            console.warn('favorites.js не загружен, используем fallback localStorage');
+            let favList = [];
+            try {
+                favList = JSON.parse(localStorage.getItem('favorites') || '[]');
+            } catch(e) { favList = []; }
+            const alreadyExists = favList.some(item => item.id === currentProduct.id);
+            if (!alreadyExists) {
+                const newItem = {
+                    id: currentProduct.id,
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    img: currentProduct.img,
+                    category: currentProduct.category || 'lamp'
+                };
+                favList.push(newItem);
+                localStorage.setItem('favorites', JSON.stringify(favList));
+                updateFavoriteVisual(currentProduct.id);
+                showNotification('Добавлено в избранное ❤️');
+                return true;
+            } else {
+                showNotification('Уже в избранном');
+                return false;
+            }
+        }
+    }
+    
+    // Функция удаления из избранного
+    function removeCurrentFromFavorites() {
+        if (!currentProduct || !currentProduct.id) return false;
+        if (typeof favorites !== 'undefined' && favorites.removeFromFavorites) {
+            favorites.removeFromFavorites(currentProduct.id);
+            updateFavoriteVisual(currentProduct.id);
+            showNotification('Удалено из избранного');
+            return true;
+        } else {
+            // fallback через localStorage
+            try {
+                let favList = JSON.parse(localStorage.getItem('favorites') || '[]');
+                const newList = favList.filter(item => item.id !== currentProduct.id);
+                localStorage.setItem('favorites', JSON.stringify(newList));
+                updateFavoriteVisual(currentProduct.id);
+                showNotification('Удалено из избранного');
+                return true;
+            } catch(e) { return false; }
+        }
+    }
+    
+    // Обработчик клика по сердечку: переключение состояния (добавить/удалить)
+    if (favoriteBtn && currentProduct) {
+        // Удаляем старые обработчики, чтобы не было дублирования
+        const newFavoriteBtn = favoriteBtn.cloneNode(true);
+        favoriteBtn.parentNode.replaceChild(newFavoriteBtn, favoriteBtn);
+        const finalFavBtn = document.getElementById('addToFavoriteBtn');
+        
+        // Первоначальная установка визуального состояния
+        if (currentProduct.id) {
+            updateFavoriteVisual(currentProduct.id);
+        }
+        
+        finalFavBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (!currentProduct || !currentProduct.id) {
+                showNotification('Ошибка: товар не определён');
+                return;
+            }
+            
+            // Определяем, находится ли товар в избранном на текущий момент
+            let isFavNow = false;
+            if (typeof favorites !== 'undefined' && favorites.isFavorite) {
+                isFavNow = favorites.isFavorite(currentProduct.id);
+            } else {
+                try {
+                    const favs = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    isFavNow = favs.some(item => item.id === currentProduct.id);
+                } catch(e) { isFavNow = false; }
+            }
+            
+            if (isFavNow) {
+                // Если уже в избранном — удаляем
+                removeCurrentFromFavorites();
+                // Добавляем микро-анимацию
+                finalFavBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => { if(finalFavBtn) finalFavBtn.style.transform = 'scale(1)'; }, 150);
+            } else {
+                // Добавляем в избранное
+                addCurrentToFavorites();
+                finalFavBtn.style.transform = 'scale(1.05)';
+                setTimeout(() => { if(finalFavBtn) finalFavBtn.style.transform = 'scale(1)'; }, 150);
+            }
+        });
+    } else if (favoriteBtn) {
+        // Если currentProduct отсутствует, отключаем кнопку
+        favoriteBtn.style.opacity = '0.5';
+        favoriteBtn.style.pointerEvents = 'none';
+    }
+    
+    // --------------------------------------------------------------
+    // 4. Универсальная функция показа уведомлений (в стиле cart-notification)
+    // --------------------------------------------------------------
+    function showNotification(message, isError = false) {
+        // Проверяем, не существует ли уже активное уведомление с таким текстом, чтобы не спамить
+        const existing = document.querySelector('.cart-notification');
+        if (existing && existing.textContent === message) return;
+        
+        const notification = document.createElement('div');
+        notification.className = 'cart-notification';
+        if (isError) {
+            notification.style.background = '#c0392b';
+        } else {
+            notification.style.background = '#a6a86c';
+        }
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        // Активация через reflow
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) notification.remove();
+            }, 300);
+        }, 2200);
+    }
+    
+    // --------------------------------------------------------------
+    // 5. Функция возврата (закрыть карточку)
+    // --------------------------------------------------------------
+    function goBack() {
+        if (document.referrer && document.referrer.includes(window.location.host)) {
+            window.history.back();
+        } else {
+            window.location.href = 'catalog.html';
+        }
+    }
+    
+    // --------------------------------------------------------------
+    // 6. Дополнительно: синхронизация с favorites.js через событие storage на случай, 
+    //    если избранное обновляется на другой вкладке – но для текущей страницы достаточно.
+    //    Подписываемся на обновление localStorage, чтобы кнопка меняла состояние, если 
+    //    избранное изменилось извне (например, после добавления на другой странице)
+    // --------------------------------------------------------------
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'favorites' && currentProduct && currentProduct.id) {
+            updateFavoriteVisual(currentProduct.id);
+        }
+    });
+    
+    // Если favourites.js предоставляет событие или перерисовку, дополнительный вызов при загрузке
+    if (typeof document !== 'undefined') {
+        document.addEventListener('favoritesUpdated', function() {
+            if (currentProduct && currentProduct.id) updateFavoriteVisual(currentProduct.id);
+        });
+    }
+    
+    // Обеспечиваем, чтобы после полной загрузки страницы, если favorites уже загружен, 
+    // визуал обновился ещё раз (на случай асинхронной загрузки скриптов)
+    window.addEventListener('DOMContentLoaded', function() {
+        if (currentProduct && currentProduct.id) {
+            // Небольшая задержка, чтобы гарантировать инициализацию favorites
+            setTimeout(() => {
+                updateFavoriteVisual(currentProduct.id);
+            }, 50);
+        }
+    });
+    
+    // Если favorites.js предоставляет метод обновления бейджей – вызываем, но необязательно.
+    // Дополнительно: интеграция с глобальным состоянием корзины (cart обновляет значки в header, если они есть)
+    if (typeof cart !== 'undefined' && cart.updateCartIcon) {
+        setTimeout(() => {
+            cart.updateCartIcon();
+        }, 100);
+    }
+    
+    // Защита: если product-data.js не загрузил глобальный массив, но карточка использует currentProduct – всё ок.
+    console.log('Карточка товара загружена, ID:', productId, 'Товар:', currentProduct);
+</script>
+</body>
+</html>
